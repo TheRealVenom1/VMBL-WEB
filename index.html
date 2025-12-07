@@ -1,131 +1,178 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VOID STORE - أقوى متجر ديسكورد عربي</title>
-  <meta name="description" content="VOID STORE | نيترو - بوستات - أعضاء - رياكشنات | أرخص الأسعار وتسليم فوري">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VMBL STORE - أكبر ستور في الشرق الأوسط</title>
+  <meta name="description" content="VMBL STORE - أكبر متجر ديسكورد في الشرق الأوسط | يوزرات - نيترو - سيرفرات - بوتات - هوستينج"/>
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap');
+    
     :root {
-      --purple: #7289da;
-      --dark: #0f0f0f;
-      --darker: #0a0a0a;
-      --gray: #1e1e1e;
+      --bg: #0f0f0f;
+      --text: #ffffff;
+      --accent: #5865F2;
+      --gray: #b9bbbe;
     }
+    
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family: 'Cairo', sans-serif;
-      background-color: var(--dark);
-      color: #fff;
-      line-height: 1.7;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
     header {
-      background: var(--darker);
-      padding: 25px 20px;
+      background: linear-gradient(135deg, #5865F2, #8b46ff);
+      padding: 2rem 1rem;
       text-align: center;
-      border-bottom: 3px solid var(--purple);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 100;
+      box-shadow: 0 4px 20px rgba(88, 101, 242, 0.3);
     }
-    .logo {
-      font-size: 42px;
-      font-weight: 900;
-      background: linear-gradient(90deg, #7289da, #ffffff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
     }
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
-      padding: 0 20px;
+    .tagline {
+      font-size: 1.5rem;
+      opacity: 0.95;
     }
-    .hero h1 {
-      font-size: 60px;
-      margin-bottom: 20px;
-    }
-    .hero p {
-      font-size: 24px;
-      max-width: 800px;
-      margin-bottom: 40px;
-      opacity: 0.9;
-    }
-    .btn {
-      padding: 18px 50px;
-      background: var(--purple);
-      color: white;
-      font-size: 22px;
-      font-weight: bold;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .btn:hover {
-      background: #5a6bb8;
-      transform: scale(1.05);
+    main {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1rem;
     }
     .services {
-      padding: 100px 20px;
-      background: var(--darker);
-      text-align: center;
-    }
-    .services h2 {
-      font-size: 40px;
-      margin-bottom: 60px;
-      color: var(--purple);
-    }
-    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 3rem 0;
     }
     .card {
-      background: var(--gray);
-      padding: 40px 25px;
-      border-radius: 15px;
-      border: 1px solid #333;
+      background: #1a1a1a;
+      padding: 1.8rem;
+      border-radius: 12px;
+      border: 1.5px solid #2a2a2a;
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-5px);
     }
     .card h3 {
-      font-size: 26px;
-      margin: 20px 0;
-      color: var(--purple);
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+      font-size: 1.4rem;
+    }
+    .section-title {
+      font-size: 2rem;
+      text-align: center;
+      margin: 3rem 0 2rem;
+      color: var(--accent);
+    }
+    .payment-methods, .socials {
+      text-align: center;
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+    }
+    .socials a {
+      color: var(--accent);
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.3rem;
+    }
+    .discord-join {
+      display: inline-block;
+      background: #5865F2;
+      color: white !important;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-size: 1.5rem;
+      margin: 2rem 0;
+      text-decoration: none;
+      font-weight: bold;
     }
     footer {
       text-align: center;
-      padding: 50px 20px;
-      background: var(--darker);
-      border-top: 1px solid #333;
-      margin-top: 50px;
+      padding: 3rem 1rem;
+      background: #111;
+      margin-top: 4rem;
     }
-    footer p {
-      font-size: 16px;
-      opacity: 0.8;
-    }
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 42px; }
-      .hero p { font-size: 18px; }
-      .btn { padding: 15px 40px; font-size: 20px; }
+    @media (max-width: 600px) {
+      h1 { font-size: 2.5rem; }
+      .tagline { font-size: 1.2rem; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="logo">VOID STORE</div>
+    <h1>VMBL STORE</h1>
+    <p class="tagline">The Biggest Store In Middle East</p>
   </header>
 
-  <section class="hero">
-    <h1>VOID STORE</h1>
-    <p>أقوى وأرخص متجر ديسكورد في الوطن العربي<br>نيترو - سيرفر بوست - أعضاء - رياكشنات بتسليم فوري وأسعار مش هتصدقها</p>
-    <a href="https://discord.gg/UUWAU2kfW3" target="_
+  <main>
+    <h2 class="section-title">اللي بنقدمه</h2>
+    
+    <div class="services">
+      <div class="card">
+        <h3>يوزرات ديسكورد</h3>
+        <p>يوزرات نادرة ومميزة بجميع الأنواع</p>
+      </div>
+      <div class="card">
+        <h3>نيترو لينك 3 شهور</h3>
+        <p>نيترو كلاسيك وبوست بأفضل الأسعار</p>
+      </div>
+      <div class="card">
+        <h3>إنشاء سيرفرات ديسكورد</h3>
+        <p>سيرفرات جاهزة احترافية حسب الطلب</p>
+      </div>
+      <div class="card">
+        <h3>شحن كريديت ProBot</h3>
+        <p>كريديت بروبوت بأرخص سعر في السوق</p>
+      </div>
+      <div class="card">
+        <h3>هوستينج بوتات</h3>
+        <p>هوست قوي 24/7 بدون توقف</p>
+      </div>
+      <div class="card">
+        <h3>مشاعر بوتات ديسكورد جاهزة</h3>
+        <p>بوتات مبرمجة وجاهزة للاستخدام</p>
+      </div>
+      <div class="card">
+        <h3>أعضاء ديسكورد</h3>
+        <p>أعضاء حقيقيين وأونلاين 24/7</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">طرق الدفع</h2>
+    <div class="payment-methods">
+      <p style="font-size:1.5rem;">
+        <strong>Instapay • Vodafone Cash • Orange Cash</strong>
+      </p>
+    </div>
+
+    <h2 class="section-title">حساباتنا الرسمية</h2>
+    <div class="socials">
+      <p>
+        تيك توك: <a href="https://tiktok.com/@vmblstore" target="_blank">tiktok.com/@vmblstore</a><br><br>
+        يوتيوب: <a href="https://www.youtube.com/@VMBL_STORE" target="_blank">youtube.com/@VMBL_STORE</a>
+      </p>
+    </div>
+
+    <div style="text-align:center;">
+      <a href="https://discord.gg/We4SvEeaNr" class="discord-join" target="_blank">
+        انضم لسيرفر VMBL STORE
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 TheRealVenom. All Rights Reserved</p>
+  </footer>
+
+</body>
+  </html>
