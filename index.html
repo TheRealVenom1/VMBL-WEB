@@ -4,208 +4,209 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>VMBL STORE - أكبر ستور في الشرق الأوسط</title>
-  <meta name="description" content="VMBL STORE - يوزرات، نيترو، سيرفرات، بوتات، هوستينج"/>
 
-  <!-- الفافيكون بتاعك -->
   <link rel="icon" href="https://i.ibb.co/YFgrfRbQ/81129628470b.webp" type="image/webp">
-  <link rel="apple-touch-icon" href="https://i.ibb.co/YFgrfRbQ/81129628470b.webp">
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@900&family=Orbitron:wght@900&display=swap');
 
-    :root {
-      --bg: #0d0d0d;
-      --card: #1a1a1a;
-      --accent: #5865F2;
-      --glow: rgba(88,101,242,0.6);
-    }
-
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: 'Cairo', sans-serif;
-      background: var(--bg);
-      color: #fff;
-      overflow-x: hidden;
-      background: radial-gradient(circle at top, #1a1a2e, #0d0d0d);
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:'Cairo',sans-serif;background:#000;color:#fff;overflow:hidden;
+      cursor:none;height:100vh;
     }
 
-    /* أنيميشن الدخول */
-    @keyframes fadeInUp {
-      from { opacity:0; transform:translateY(50px); }
-      to { opacity:1; transform:translateY(0); }
-    }
-    @keyframes float {
-      0%,100% { transform:translateY(0); }
-      50% { transform:translateY(-20px); }
-    }
-    @keyframes pulse {
-      0% { box-shadow:0 0 20px var(--glow); }
-      50% { box-shadow:0 0 50px var(--glow); }
-      100% { box-shadow:0 0 20px var(--glow); }
+    /* كورسور ليزر أزرق يحرق الشاشة */
+    .cursor{
+      position:fixed;width:50px;height:50px;pointer-events:none;z-index:99999;
+      background:radial-gradient(circle,#5865F2 0%,transparent 70%);
+      border-radius:50%;mix-blend-mode:screen;
+      box-shadow:0 0 100px #5865F2,0 0 200px #8b46ff;
+      transform:translate(-50%,-50%);transition:all .03s;
     }
 
-    header {
-      background: linear-gradient(135deg, #5865F2, #8b46ff);
-      padding: 3rem 1rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+    .cursor::after{
+      content:'';position:absolute;inset:0;
+      background:#5865F2;border-radius:50%;animation:pulseCursor 1.5s infinite;
     }
-    header::before {
-      content: '';
-      position: absolute;
-      top: -100%; left: -50%;
-      width: 200%; height: 300%;
-      background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%);
-      animation: float 25s infinite linear;
+    @keyframes pulseCursor{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(2);opacity:0}}
+
+    /* خلفية فضاء + نبض ديسكورد + برق */
+    .universe{
+      position:fixed;inset:0;background:radial-gradient(circle at center,#0a001a,#000);
+      animation:breath 20s infinite;z-index:-5;
+    }
+    @keyframes breath{0%,100%{background:radial-gradient(circle at center,#0a001a,#000)}50%{background:radial-gradient(circle at center,#1a0033,#000)}}
+    .lightning{
+      position:fixed;inset:0;background:transparent;
+      background-image:repeating-linear-gradient(45deg,transparent,transparent 50px,#5865F2 50px,#5865F2 52px);
+      opacity:0;animation:flash 8s infinite;
+    }
+    @keyframes flash{0%,100%{opacity:0}5%,10%{opacity:.1}15%{opacity:0}}
+
+    /* جزيئات + خطوط نيون + موجات */
+    .matrix{position:fixed;inset:0;z-index:-1}
+    .line{position:absolute;background:linear-gradient(transparent,#8b46ff,transparent);height:100%;width:4px;opacity:.3;animation:glowLine 6s infinite}
+    @keyframes glowLine{0%,100%{opacity:.2;transform:scaleY(0)}50%{opacity:1;transform:scaleY(1)}}
+
+    header{
+      min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+      position:relative;perspective:2000px;
+    }
+    .logo-img{
+      width:320px;height:320px;border-radius:50%;position:relative;
+      border:15px solid transparent;
+      background:linear-gradient(#000,#000) padding-box,
+                 repeating-conic-gradient(from 0deg,#5865F2,#8b46ff,#00ffff,#ff00ff,#5865F2) border-box;
+      animation:spin 30s linear infinite,levitate 8s ease-in-out infinite,ultraGlow 3s infinite;
+      box-shadow:0 0 200px #5865F2,0 0 300px #8b46ff;
+      transform-style:preserve-3d;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @keyframes levitate{0%,100%{transform:translateY(0)}50%{transform:translateY(-60px)}}
+    @keyframes ultraGlow{0%{box-shadow:0 0 200px #5865F2}50%{box-shadow:0 0 400px #8b46ff}}
+
+    h1{
+      font-family:'Orbitron',sans-serif;font-size:14rem;margin:3rem 0;letter-spacing:20px;
+      background:linear-gradient(90deg,#5865F2,#8b46ff,#00ffff,#ff00ff,#5865F2);
+      background-size:600%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      animation:electric 8s linear infinite,text3D 6s infinite;
+      text-shadow:0 0 100px #5865F2,0 0 200px #8b46ff;
+    }
+    @keyframes electric{to{background-position:600%}}
+    @keyframes text3D{0%{transform:translateZ(100px)}50%{transform:translateZ(-100px)}100%{transform:translateZ(100px)}}
+
+    .tagline{
+      font-size:4rem;letter-spacing:15px;text-shadow:0 0 80px #8b46ff;
+      animation:glitch 2s infinite;
+    }
+    @keyframes glitch{
+      0%{text-shadow:0 0 80px #8b46ff}
+      20%{text-shadow:5px 5px 0 #00ffff,-5px -5px 0 #ff00ff}
+      40%{text-shadow:-5px -5px 0 #00ffff,5px 5px 0 #ff00ff}
+      100%{text-shadow:0 0 80px #8b46ff}
     }
 
-    .logo-img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 6px solid rgba(255,255,255,0.3);
-      margin-bottom: 1.5rem;
-      animation: float 6s ease-in-out infinite, pulse 4s infinite;
+    .services{
+      max-width:1600px;margin:10rem auto;display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:4rem;padding:0 3rem;
+    }
+    .card{
+      background:rgba(10,10,30,.8);padding:4rem;border-radius:40px;
+      border:5px solid transparent;position:relative;overflow:hidden;
+      backdrop-filter:blur(20px);transform:translateY(200px);opacity:0;
+      animation:cardLaunch 1.8s ease-out forwards;
+    }
+    .card::before{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(45deg,transparent 30%,rgba(88,101,242,.3) 50%,transparent 70%);
+      transform:translateX(-100%);animation:shineCard 4s infinite;
+    }
+    @keyframes shineCard{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+    .card:nth-child(1){animation-delay:.3s}.card:nth-child(2){animation-delay:.6s}
+    .card:nth-child(3){animation-delay:.9s}.card:nth-child(4){animation-delay:1.2s}
+    .card:nth-child(5){animation-delay:1.5s}.card:nth-child(6){animation-delay:1.8s}
+    .card:nth-child(7){animation-delay:2.1s}
+    @keyframes cardLaunch{
+      0%{transform:translateY(200px) rotateX(-90deg);opacity:0}
+      70%{transform:rotateX(10deg)}
+      100%{transform:translateY(0) rotateX(0);opacity:1}
+    }
+    .card:hover{
+      transform:translateY(-60px) scale(1.3) rotateY(15deg);
+      border-color:#8b46ff;box-shadow:0 0 200px #8b46ff;
+      z-index:10;
+    }
+    .card h3{
+      font-size:3rem;color:#8b46ff;text-shadow:0 0 50px #8b46ff;
     }
 
-    h1 {
-      font-size: 4.5rem;
-      font-weight: 900;
-      background: linear-gradient(90deg, #fff, #c8c8ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: fadeInUp 1.2s ease-out;
+    .discord-join{
+      display:block;width:600px;margin:10rem auto;padding:3rem;
+      background:linear-gradient(45deg,#5865F2,#8b46ff,#00ffff,#ff00ff,#5865F2);
+      background-size:600%;color:#fff;font-size:5rem;font-weight:900;
+      border-radius:120px;text-align:center;text-decoration:none;
+      box-shadow:0 0 200px #5865F2;animation:epicBtn 8s linear infinite,shake 3s infinite;
+      position:relative;overflow:hidden;
     }
-    .tagline {
-      font-size: 1.8rem;
-      opacity: 0.9;
-      animation: fadeInUp 1.2s ease-out 0.4s both;
+    .discord-join::before{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(90deg,transparent,#fff,transparent);
+      transform:translateX(-100%);animation:shineBtn 3s infinite;
+    }
+    @keyframes shineBtn{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+    .discord-join:hover{transform:scale(1.4);box-shadow:0 0 300px #ff00ff}
+    @keyframes epicBtn{to{background-position:600%}}
+    @keyframes shake{0%,100%{transform:translateX(0)}50%{transform:translateX(20px)}}
+
+    footer{
+      text-align:center;padding:8rem;font-size:2rem;color:#8b46ff;
+      text-shadow:0 0 80px #8b46ff;letter-spacing:10px;
+      background:rgba(0,0,0,.8);backdrop-filter:blur(10px);
     }
 
-    main { max-width: 1100px; margin: 4rem auto; padding: 0 1rem; }
-
-    .section-title {
-      font-size: 2.5rem;
-      text-align: center;
-      margin: 4rem 0 3rem;
-      color: var(--accent);
-      animation: fadeInUp 1s ease-out;
-    }
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 120px;
-      height: 5px;
-      background: var(--accent);
-      margin: 1rem auto;
-      border-radius: 3px;
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    .card {
-      background: var(--card);
-      padding: 2rem;
-      border-radius: 18px;
-      border: 1px solid #333;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(40px);
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
-    .card:nth-child(1) { animation-delay: 0.2s; }
-    .card:nth-child(2) { animation-delay: 0.4s; }
-    .card:nth-child(3) { animation-delay: 0.6s; }
-    .card:nth-child(4) { animation-delay: 0.8s; }
-    .card:nth-child(5) { animation-delay: 1.0s; }
-    .card:nth-child(6) { animation-delay: 1.2s; }
-    .card:nth-child(7) { animation-delay: 1.4s; }
-
-    .card:hover {
-      transform: translateY(-15px);
-      border-color: var(--accent);
-      box-shadow: 0 20px 40px rgba(88,101,242,0.25);
-      transition: all 0.4s ease;
-    }
-    .card h3 {
-      color: var(--accent);
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .discord-join {
-      display: block;
-      width: 340px;
-      margin: 4rem auto;
-      padding: 1.4rem;
-      background: var(--accent);
-      color: white;
-      font-size: 1.7rem;
-      font-weight: bold;
-      text-align: center;
-      border-radius: 50px;
-      text-decoration: none;
-      box-shadow: 0 10px 30px rgba(88,101,242,0.5);
-      animation: fadeInUp 1s ease-out 1.6s both;
-    }
-    .discord-join:hover {
-      transform: scale(1.08);
-      box-shadow: 0 20px 50px rgba(88,101,242,0.7);
-    }
-
-    footer {
-      text-align: center;
-      padding: 3rem;
-      background: #000;
-      font-size: 1.1rem;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 3rem; }
-      .tagline { font-size: 1.4rem; }
-      .logo-img { width: 110px; height: 110px; }
-      .discord-join { width: 90%; font-size: 1.5rem; }
+    @media(max-width:768px){
+      h1{font-size:8rem}
+      .tagline{font-size:2.5rem}
+      .logo-img{width:220px;height:220px}
+      .discord-join{width:90%;font-size:3.5rem}
+      .card{font-size:1.8rem;padding:2.5rem}
     }
   </style>
 </head>
 <body>
 
+  <div class="cursor"></div>
+  <div class="universe"></div>
+  <div class="lightning"></div>
+  <div class="matrix" id="matrix"></div>
+
   <header>
-    <img src="https://i.ibb.co/YFgrfRbQ/81129628470b.webp" alt="VMBL STORE" class="logo-img">
+    <img src="https://i.ibb.co/YFgrfRbQ/81129628470b.webp" alt="VMBL" class="logo-img">
     <h1>VMBL STORE</h1>
     <p class="tagline">The Biggest Store In Middle East</p>
   </header>
 
-  <main>
-    <h2 class="section-title">اللي بنقدمه</h2>
+  <div class="services">
+    <div class="card"><h3>يوزرات ديسكورد</h3><p>يوزرات نادرة ومميزة بكل الأنواع</p></div>
+    <div class="card"><h3>نيترو لينك 3 شهور</h3><p>نيترو بأفضل الأسعار في السوق</p></div>
+    <div class="card"><h3>إنشاء سيرفرات ديسكورد</h3><p>سيرفرات احترافية جاهزة</p></div>
+    <div class="card"><h3>شحن كريديت ProBot</h3><p>كريديت بأرخص سعر</p></div>
+    <div class="card"><h3>هوستينج بوتات</h3><p>هوست قوي 24/7 بدون توقف</p></div>
+    <div class="card"><h3>مشاريع بوتات جاهزة</h3><p>بوتات مبرمجة ومضمونة</p></div>
+    <div class="card"><h3>أعضاء ديسكورد</h3><p>أعضاء حقيقيين وأونلاين</p></div>
+  </div>
 
-    <div class="services">
-      <div class="card"><h3>يوزرات ديسكورد</h3><p>يوزرات نادرة ومميزة بكل الأنواع</p></div>
-      <div class="card"><h3>نيترو لينك 3 شهور</h3><p>نيترو بأفضل الأسعار في السوق</p></div>
-      <div class="card"><h3>إنشاء سيرفرات ديسكورد</h3><p>سيرفرات احترافية جاهزة</p></div>
-      <div class="card"><h3>شحن كريديت ProBot</h3><p>كريديت بأرخص سعر</p></div>
-      <div class="card"><h3>هوستينج بوتات</h3><p>هوست قوي 24/7 بدون توقف</p></div>
-      <div class="card"><h3>مشاريع بوتات جاهزة</h3><p>بوتات مبرمجة ومضمونة</p></div>
-      <div class="card"><h3>أعضاء ديسكورد</h3><p>أعضاء حقيقيين وأونلاين</p></div>
-    </div>
+  <h2 style="text-align:center;font-size:4rem;margin:6rem;color:#8b46ff;text-shadow:0 0 100px">طرق الدفع</h2>
+  <p style="text-align:center;font-size:3rem;margin:4rem;color:#8b46ff;text-shadow:0 0 80px">
+    <strong>Instapay • Vodafone Cash • Orange Cash</strong>
+  </p>
 
-    <h2 class="section-title">طرق الدفع</h2>
-    <div style="text-align:center; font-size:1.8rem; margin:2rem 0; animation:fadeInUp 1s ease-out 1.8s both;">
-      <strong>Instapay • Vodafone Cash • Orange Cash</strong>
-    </div>
-
-    <a href="https://discord.gg/We4SvEeaNr" class="discord-join" target="_blank">
-      انضم لسيرفر VMBL STORE
-    </a>
-  </main>
+  <a href="https://discord.gg/We4SvEeaNr" class="discord-join" target="_blank">
+    انضم لسيرفر VMBL STORE
+  </a>
 
   <footer>
     <p>© 2025 TheRealVenom. All Rights Reserved</p>
   </footer>
 
+  <script>
+    // كورسور
+    document.addEventListener('mousemove', e => {
+      const c = document.querySelector('.cursor');
+      c.style.left = e.clientX + 'px';
+      c.style.top = e.clientY + 'px';
+    });
+
+    // خطوط نيون
+    const m = document.getElementById('matrix');
+    for(let i=0;i<30;i++){
+      const l = document.createElement('div');
+      l.classList.add('line');
+      l.style.left = Math.random()*100 + '%';
+      l.style.animationDelay = Math.random()*6 + 's';
+      m.appendChild(l);
+    }
+  </script>
 </body>
 </html>
